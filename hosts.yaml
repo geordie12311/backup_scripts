@@ -1,0 +1,13 @@
+---
+R1:
+    hostname: "10.10.10.101"
+    groups:
+        - IOS_group
+    data:  
+        location: "Central"
+        layer: "Core"
+        Contact: "CentralAdmin@gh-lab.com"
+        ASN: "65001"   
+          
+     
+    

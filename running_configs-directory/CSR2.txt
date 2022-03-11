@@ -1,0 +1,205 @@
+!
+
+!
+version 17.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service call-home
+platform qfp utilization monitor load 80
+platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname CSR2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+ip domain name gh-lab
+!
+!
+!
+login on-success log
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-1047402773
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1047402773
+ revocation-check none
+ rsakeypair TP-self-signed-1047402773
+!
+crypto pki trustpoint SLA-TrustPoint
+ enrollment pkcs12
+ revocation-check crl
+!
+!
+crypto pki certificate chain TP-self-signed-1047402773
+crypto pki certificate chain SLA-TrustPoint
+!
+license udi pid CSR1000V sn 9LSD8X5YLM3
+diagnostic bootup level minimal
+archive
+ path bootflash:archive
+ write-memory
+memory free low-watermark processor 71556
+file prompt quiet
+!
+!
+spanning-tree extend system-id
+!
+username geordie privilege 15 secret 9 $9$VM8PJFTJsGiRI.$1mrh.KxYF2AjSd6V/AM1HpproAFhroYz.uUY4/eN1es
+!
+redundancy
+!
+!
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface Loopback0
+ ip address 13.13.13.13 255.255.255.255
+!
+interface GigabitEthernet1
+ ip address 10.10.10.113 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet2
+ ip address 50.50.50.2 255.255.255.252
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3
+ ip address 51.51.51.1 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet4
+ ip address 27.27.27.1 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+router bgp 65001
+ bgp router-id 13.13.13.13
+ bgp log-neighbor-changes
+ network 0.0.0.0
+ redistribute connected
+ neighbor 10.10.10.101 remote-as 65001
+ neighbor 10.10.10.102 remote-as 65001
+ neighbor 10.10.10.103 remote-as 65001
+ neighbor 10.10.10.104 remote-as 65001
+ neighbor 10.10.10.105 remote-as 65001
+ neighbor 10.10.10.106 remote-as 65001
+ neighbor 10.10.10.107 remote-as 65001
+ neighbor 10.10.10.108 remote-as 65001
+ neighbor 10.10.10.112 remote-as 65001
+ neighbor 10.10.10.115 remote-as 6519
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+!
+ip scp server enable
+!
+!
+!
+!
+snmp-server community gh-lab RO
+snmp-server community ghlab RW
+snmp-server trap-source Loopback0
+snmp-server host 10.10.10.120 version 2c gh-lab 
+snmp-server host 140.140.1.2 version 2c gh-lab 
+snmp-server host 140.140.140.2 version 2c gh-lab 
+snmp-server host 10.10.10.120 version 2c ghlab 
+snmp-server host 140.140.1.2 version 2c ghlab 
+snmp-server host 140.140.140.2 version 2c ghlab 
+snmp-server host 140.140.1.2 ro 
+snmp-server host 10.10.10.120 rw 
+snmp-server host 140.140.1.2 rw 
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ stopbits 1
+line vty 0 4
+ login local
+ transport preferred ssh
+ transport input ssh
+!
+!
+!
+!
+!
+!
+netconf-yang
+netconf-yang feature candidate-datastore
+restconf
+end

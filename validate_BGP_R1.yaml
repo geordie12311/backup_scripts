@@ -1,0 +1,150 @@
+---
+
+ - get_bgp_neighbors:
+    global:
+      peers:
+        _mode: strict
+        10.10.10.102:
+          address_family:
+            ipv4 unicast:
+              accepted_prefixes: 5
+              received_prefixes: 5
+              sent_prefixes: 5
+          description: ''
+          is_enabled: true
+          is_up: true
+          local_as: 65001
+          remote_as: 65001
+          remote_id: 2.2.2.2
+          uptime: ">500"
+        10.10.10.103:
+          address_family:
+            ipv4 unicast:
+              accepted_prefixes: 0
+              received_prefixes: 0
+              sent_prefixes: 5
+          description: ''
+          is_enabled: true
+          is_up: true
+          local_as: 65001
+          remote_as: 65001
+          remote_id: 3.3.3.3
+          uptime: ">500"
+        10.10.10.104:
+          address_family:
+            ipv4 unicast:
+              accepted_prefixes: 6
+              received_prefixes: 6
+              sent_prefixes: 5
+          description: ''
+          is_enabled: true
+          is_up: true
+          local_as: 65001
+          remote_as: 65001
+          remote_id: 4.4.4.4
+          uptime: ">500"
+        10.10.10.105:
+          address_family:
+            ipv4 unicast:
+              accepted_prefixes: 4
+              received_prefixes: 4
+              sent_prefixes: 5
+          description: ''
+          is_enabled: true
+          is_up: true
+          local_as: 65001
+          remote_as: 65001
+          remote_id: 5.5.5.5
+          uptime: ">500"
+        10.10.10.106:
+          address_family:
+            ipv4 unicast:
+              accepted_prefixes: 4
+              received_prefixes: 4
+              sent_prefixes: 5
+          description: ''
+          is_enabled: true
+          is_up: true
+          local_as: 65001
+          remote_as: 65001
+          remote_id: 6.6.6.6
+          uptime: ">500"
+        10.10.10.107:
+          address_family:
+            ipv4 unicast:
+              accepted_prefixes: 4
+              received_prefixes: 4
+              sent_prefixes: 5
+          description: ''
+          is_enabled: true
+          is_up: true
+          local_as: 65001
+          remote_as: 65001
+          remote_id: 7.7.7.7
+          uptime: ">500"
+        10.10.10.108:
+          address_family:
+            ipv4 unicast:
+              accepted_prefixes: 5
+              received_prefixes: 5
+              sent_prefixes: 5
+          description: ''
+          is_enabled: true
+          is_up: true
+          local_as: 65001
+          remote_as: 65001
+          remote_id: 8.8.8.8
+          uptime: ">500"
+        10.10.10.112:
+          address_family:
+            ipv4 unicast:
+              accepted_prefixes: 5
+              received_prefixes: 5
+              sent_prefixes: 5
+          description: ''
+          is_enabled: true
+          is_up: true
+          local_as: 65001
+          remote_as: 65001
+          remote_id: 12.12.12.12
+          uptime: ">500"
+        10.10.10.113:
+          address_family:
+            ipv4 unicast:
+              accepted_prefixes: 5
+              received_prefixes: 5
+              sent_prefixes: 5
+          description: ''
+          is_enabled: true
+          is_up: true
+          local_as: 65001
+          remote_as: 65001
+          remote_id: 13.13.13.13
+          uptime: ">500"
+        10.10.10.198:
+          address_family:
+            ipv4 unicast:
+              accepted_prefixes: -1
+              received_prefixes: -1
+              sent_prefixes: -1
+          description: ''
+          is_enabled: true
+          is_up: false
+          local_as: 65001
+          remote_as: 65001
+          remote_id: 0.0.0.0
+          uptime: -1
+        185.10.10.254:
+          address_family:
+            ipv4 unicast:
+              accepted_prefixes: 0
+              received_prefixes: 0
+              sent_prefixes: 26
+          description: ''
+          is_enabled: true
+          is_up: true
+          local_as: 65001
+          remote_as: 6519
+          remote_id: 14.14.14.14
+          uptime: ">500"
+      router_id: 1.1.1.1

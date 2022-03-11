@@ -1,0 +1,8 @@
+---
+
+- get_facts:
+    hostname: R1
+    os_version: IOSv Software (VIOS-ADVENTERPRISEK9-M), Version 15.7(3)M3, RELEASE SOFTWARE
+      (fc2)
+    serial_number: 9X0MYJHM9SOTZ6WJXVFCU
+...
