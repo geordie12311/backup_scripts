@@ -12,12 +12,12 @@ def menu():
     time.sleep(1)
 
 choice = input("""
-        A: Run script to backup all hosts running configs to backup-directory
-        B: Run script to backup "show run", "show version" & "show ip int brief" to date/times stamped folders in archive-directory
-        C: Run script to create archive folder in flash on all hosts for saving gold image
-        D: Run script to save running configuration as gold image on flash on all hosts in host file
-        E: Run script to rollback to gold image on flash on all hosts in host file
-        Q: Quit the programme
+    A: Run script to backup all hosts running configs to backup-directory
+    B: Run script to backup "show run", "show ver" & "show ip int". Save to archive-directory / date-time stamped
+    C: Run script to create archive folder in flash on all hosts for saving gold image
+    D: Run script to save running configuration as gold image on flash on all hosts in host file
+    E: Run script to rollback to gold image on flash on all hosts in host file
+    Q: Quit the programme
 
         Please make a selection from above menu, you will then be prompted to enter your password
 """)

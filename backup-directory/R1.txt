@@ -1,6 +1,4 @@
 !
-
-!
 version 15.7
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -86,13 +84,13 @@ interface GigabitEthernet0/0
  media-type rj45
 !
 interface GigabitEthernet0/1
- ip address 20.20.20.1 255.255.255.252
+ ip address 20.20.20.1 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
 !
 interface GigabitEthernet0/2
- ip address 19.19.19.1 255.255.255.252
+ ip address 19.19.19.1 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
@@ -102,6 +100,11 @@ interface GigabitEthernet0/3
  duplex auto
  speed auto
  media-type rj45
+!
+router ospf 1
+ router-id 1.1.1.1
+ network 19.19.19.0 0.0.0.255 area 0
+ network 20.20.20.0 0.0.0.255 area 0
 !
 router bgp 65001
  bgp log-neighbor-changes
@@ -114,9 +117,6 @@ router bgp 65001
  neighbor 10.10.10.106 remote-as 65001
  neighbor 10.10.10.107 remote-as 65001
  neighbor 10.10.10.108 remote-as 65001
- neighbor 10.10.10.109 remote-as 65001
- neighbor 10.10.10.110 remote-as 65001
- neighbor 10.10.10.111 remote-as 65001
  neighbor 10.10.10.112 remote-as 65001
  neighbor 10.10.10.113 remote-as 65001
  neighbor 10.10.10.198 remote-as 65001
@@ -148,6 +148,33 @@ snmp-server host 140.140.1.2 rw
 !
 control-plane
 !
+banner exec ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+banner incoming ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+banner login ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
 parser view restricted
  secret 5 $1$.DKR$8.SNCQWGGhWkXpZOMWwpq.
  commands exec include terminal width

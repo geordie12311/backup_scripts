@@ -5092,3 +5092,4 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_validate (failed)
 2022-03-05 16:54:07,540 -  nornir.core -     INFO -        run() - Running task 'validate_test' with args {} on 1 hosts
 2022-03-05 16:54:52,272 -  nornir.core -     INFO -        run() - Running task 'validate_test' with args {} on 1 hosts
 2022-03-05 17:00:08,378 -  nornir.core -     INFO -        run() - Running task 'validate_test' with args {} on 1 hosts
+2022-03-12 10:47:02,477 -  nornir.core -     INFO -        run() - Running task 'backup_configurations' with args {} on 1 hosts
