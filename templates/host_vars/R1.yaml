@@ -1,0 +1,10 @@
+OSPF: 
+    process_id: "1"
+    rid: "1.1.1.1"
+    redistributing:
+        - "connected subnets"
+        - "eigrp 100 subnets"
+    networks:
+        - "19.19.19.0 area 0"
+        - "20.20.20.0 area 0"
+        - "185.10.10.0 area 0"

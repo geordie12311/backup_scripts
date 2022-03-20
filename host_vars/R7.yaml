@@ -1,22 +1,25 @@
----
-snmp:
-    snmp_community: "gh-lab"
+OSPF: 
+    process_id: "1"
+    rid: "7.7.7.7"
+    redistributing:
+        - "redistribute connected subnets"
+        - "redistribute eigrp 100 subnets"
+    networks:
+        - "26.26.26.0 0.0.0.255 area 0"
+        - "50.50.50.0 0.0.0.255 area 0"
+        - "56.56.56.0 0.0.0.255 area 0"
 
-ospf:
-    ospf_rid: 7.7.7.7
-    ospf_process: "1"
-    ospf_networks:
-        - ip: "0.0.0.0"
-          wildcard: "255.255.255.255"
-          area: "0"
+ACCESS_LISTS:
+    ACL1:
+        - "permit ip host 1.1.1.1 host 8.8.8.8"
+        - "permit icmp host any any"
 
-bgp: 
-    asn: "65001"
-    rid: 7.7.7.7
-    update_source: "loopback0"
-    route_reflector: False
-    neighbors:
-       - 3.3.3.3
-       - 4.4.4.4
-        
-loopback0: "7.7.7.7"
+    ACL2:
+        - "permit tcp host 140.140.1.3 any eq 22"
+        - "permit icmp host 140.140.1.3 any"
+
+NTP:
+    update_calendar: True
+    servers:
+        - "7.7.7.7 prefer"
+        - "19.19.19.19"

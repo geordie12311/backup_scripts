@@ -1,6 +1,4 @@
-Using 2822 out of 262144 bytes
-!
-
+Using 5269 out of 262144 bytes
 !
 version 15.7
 service timestamps debug datetime msec
@@ -52,9 +50,6 @@ multilink bundle-name authenticated
 !
 !
 !
-archive
- path flash:archive
- write-memory
 file prompt quiet
 username jradmin privilege 15 view restricted secret 5 $1$9kAc$AlSa8wJoJAGMIviQI9Oyb/
 username geordie privilege 15 secret 5 $1$HpPm$ktGEEI2tIyVSGAQFMVMtR1
@@ -92,33 +87,49 @@ interface GigabitEthernet0/1
  media-type rj45
 !
 interface GigabitEthernet0/2
- ip address 27.27.27.1 255.255.255.252
+ ip address 56.56.56.1 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
 !
 interface GigabitEthernet0/3
- no ip address
- shutdown
+ ip address 50.50.50.2 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
 !
+router ospf 1
+ router-id 7.7.7.7
+ network 26.26.26.0 0.0.0.255 area 0
+ network 50.50.50.0 0.0.0.255 area 0
+ network 56.56.56.0 0.0.0.255 area 0
+!
 router bgp 65001
  bgp router-id 7.7.7.7
  bgp log-neighbor-changes
- network 0.0.0.0
- redistribute connected
+ network 10.10.10.0 mask 255.255.255.0
  neighbor 10.10.10.101 remote-as 65001
+ neighbor 10.10.10.101 update-source Loopback0
  neighbor 10.10.10.102 remote-as 65001
+ neighbor 10.10.10.102 update-source Loopback0
  neighbor 10.10.10.103 remote-as 65001
+ neighbor 10.10.10.103 update-source Loopback0
  neighbor 10.10.10.104 remote-as 65001
+ neighbor 10.10.10.104 update-source Loopback0
  neighbor 10.10.10.105 remote-as 65001
+ neighbor 10.10.10.105 update-source Loopback0
  neighbor 10.10.10.106 remote-as 65001
+ neighbor 10.10.10.106 update-source Loopback0
  neighbor 10.10.10.108 remote-as 65001
+ neighbor 10.10.10.108 update-source Loopback0
+ neighbor 10.10.10.109 remote-as 65001
+ neighbor 10.10.10.109 update-source Loopback0
  neighbor 10.10.10.112 remote-as 65001
+ neighbor 10.10.10.112 update-source Loopback0
  neighbor 10.10.10.113 remote-as 65001
- neighbor 10.10.10.115 remote-as 6519
+ neighbor 10.10.10.113 update-source Loopback0
+ neighbor 10.10.10.115 remote-as 65001
+ neighbor 10.10.10.115 update-source Loopback0
 !
 ip forward-protocol nd
 !
@@ -146,6 +157,33 @@ snmp-server host 140.140.1.2 rw
 !
 control-plane
 !
+banner exec ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+banner incoming ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+banner login ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
 parser view restricted
  secret 5 $1$bB8F$lE0UL1x2jy4rsuLA0EYpy/
  commands exec include terminal width

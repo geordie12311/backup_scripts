@@ -1,4 +1,4 @@
-Using 2968 out of 262144 bytes
+Using 5107 out of 262144 bytes
 !
 
 !
@@ -53,9 +53,12 @@ multilink bundle-name authenticated
 !
 !
 !
+archive
+ path flash:archive
+ write-memory
 file prompt quiet
 username geordie privilege 15 secret 5 $1$xZJF$Bt89yFZqXJrUvGM7dhUAL1
-username jradmin privilege 15 view restricted secret 5 $1$m8Q6$m5g0OpN9yPFwJICKYXbna
+username jradmin privilege 15 view restricted secret 5 $1$m8Q6$m5g0OpN9yPFwJICKa
 !
 redundancy
 !
@@ -84,68 +87,56 @@ interface GigabitEthernet0/0
  media-type rj45
 !
 interface GigabitEthernet0/1
- ip address 20.20.20.5 255.255.255.252
+ ip address 20.20.20.2 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
 !
 interface GigabitEthernet0/2
- ip address 55.55.55.1 255.255.255.252
+ ip address 22.22.22.1 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
 !
 interface GigabitEthernet0/3
- ip address 23.23.23.1 255.255.255.252
- duplex auto
- speed auto
- media-type rj45
-!
-interface GigabitEthernet0/4
- ip address 22.22.22.1 255.255.255.252
- duplex auto
- speed auto
- media-type rj45
-!
-interface GigabitEthernet0/5
- no ip address
- shutdown
- duplex auto
- speed auto
- media-type rj45
-!
-interface GigabitEthernet0/6
- no ip address
- shutdown
- duplex auto
- speed auto
- media-type rj45
-!
-interface GigabitEthernet0/7
- no ip address
- shutdown
+ ip address 23.23.23.1 255.255.255.0
  duplex auto
  speed auto
  media-type rj45
 !
 router ospf 1
  router-id 3.3.3.3
- network 0.0.0.0 255.255.255.255 area 0
+ network 20.20.20.0 0.0.0.255 area 0
+ network 22.22.22.0 0.0.0.255 area 0
+ network 23.23.23.0 0.0.0.255 area 0
 !
 router bgp 65001
  bgp router-id 3.3.3.3
  bgp log-neighbor-changes
- network 0.0.0.0
+ network 10.10.10.0 mask 255.255.255.0
+ neighbor 10.10.10.10 remote-as 65001
  neighbor 10.10.10.101 remote-as 65001
+ neighbor 10.10.10.101 update-source Loopback0
  neighbor 10.10.10.102 remote-as 65001
+ neighbor 10.10.10.102 update-source Loopback0
  neighbor 10.10.10.104 remote-as 65001
+ neighbor 10.10.10.104 update-source Loopback0
  neighbor 10.10.10.105 remote-as 65001
+ neighbor 10.10.10.105 update-source Loopback0
  neighbor 10.10.10.106 remote-as 65001
+ neighbor 10.10.10.106 update-source Loopback0
  neighbor 10.10.10.107 remote-as 65001
+ neighbor 10.10.10.107 update-source Loopback0
  neighbor 10.10.10.108 remote-as 65001
+ neighbor 10.10.10.108 update-source Loopback0
+ neighbor 10.10.10.109 remote-as 65001
+ neighbor 10.10.10.109 update-source Loopback0
  neighbor 10.10.10.112 remote-as 65001
+ neighbor 10.10.10.112 update-source Loopback0
  neighbor 10.10.10.113 remote-as 65001
+ neighbor 10.10.10.113 update-source Loopback0
  neighbor 10.10.10.115 remote-as 6519
+ neighbor 10.10.10.115 update-source Loopback0
 !
 ip forward-protocol nd
 !
@@ -165,6 +156,33 @@ snmp-server host 10.10.10.150 rw
 !
 control-plane
 !
+banner exec ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+banner incoming ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+banner login ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
 parser view restricted
  secret 5 $1$KRTE$7X1pDZocB8lRj1BcheKQn1
  commands exec include terminal width
@@ -178,7 +196,6 @@ parser view restricted
 line con 0
 line aux 0
 line vty 0 4
- transport preferred ssh
  transport input ssh
 !
 no scheduler allocate

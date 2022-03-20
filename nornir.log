@@ -5093,3 +5093,3135 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_validate (failed)
 2022-03-05 16:54:52,272 -  nornir.core -     INFO -        run() - Running task 'validate_test' with args {} on 1 hosts
 2022-03-05 17:00:08,378 -  nornir.core -     INFO -        run() - Running task 'validate_test' with args {} on 1 hosts
 2022-03-12 10:47:02,477 -  nornir.core -     INFO -        run() - Running task 'backup_configurations' with args {} on 1 hosts
+2022-03-18 18:47:09,710 -  nornir.core -     INFO -        run() - Running task 'backup_configs' with args {} on 1 hosts
+2022-03-18 18:47:13,702 -  nornir.core -     INFO -        run() - Running task 'startup_configs' with args {} on 1 hosts
+2022-03-18 18:48:50,175 -  nornir.core -     INFO -        run() - Running task 'backup_configs' with args {} on 1 hosts
+2022-03-18 18:48:53,628 -  nornir.core -     INFO -        run() - Running task 'startup_configs' with args {} on 1 hosts
+2022-03-18 18:50:30,270 -  nornir.core -     INFO -        run() - Running task 'backup_configs' with args {} on 10 hosts
+2022-03-18 18:50:36,555 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.107:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.107
+
+2022-03-18 18:50:36,556 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.103:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.103
+
+2022-03-18 18:50:36,556 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.101:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.101
+
+2022-03-18 18:50:36,556 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'backup_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/napalm_backup.py", line 24, in backup_configs
+    config_result = task.run(task=napalm_get, getters=["config"])
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2022-03-18 18:50:36,557 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.104:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.104
+
+2022-03-18 18:50:36,559 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'backup_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/napalm_backup.py", line 24, in backup_configs
+    config_result = task.run(task=napalm_get, getters=["config"])
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2022-03-18 18:50:36,557 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.105:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.105
+
+2022-03-18 18:50:36,557 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.112:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.112
+
+2022-03-18 18:50:36,558 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'backup_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/napalm_backup.py", line 24, in backup_configs
+    config_result = task.run(task=napalm_get, getters=["config"])
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2022-03-18 18:50:36,558 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.108:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.108
+
+2022-03-18 18:50:36,560 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'backup_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/napalm_backup.py", line 24, in backup_configs
+    config_result = task.run(task=napalm_get, getters=["config"])
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2022-03-18 18:50:36,559 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.113:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.113
+
+2022-03-18 18:50:36,557 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.102:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.102
+
+2022-03-18 18:50:36,560 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'backup_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/napalm_backup.py", line 24, in backup_configs
+    config_result = task.run(task=napalm_get, getters=["config"])
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2022-03-18 18:50:36,560 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'backup_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/napalm_backup.py", line 24, in backup_configs
+    config_result = task.run(task=napalm_get, getters=["config"])
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2022-03-18 18:50:36,558 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'backup_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/napalm_backup.py", line 24, in backup_configs
+    config_result = task.run(task=napalm_get, getters=["config"])
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2022-03-18 18:50:36,560 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.106:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.106
+
+2022-03-18 18:50:36,561 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'backup_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/napalm_backup.py", line 24, in backup_configs
+    config_result = task.run(task=napalm_get, getters=["config"])
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2022-03-18 18:50:36,561 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'backup_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/napalm_backup.py", line 24, in backup_configs
+    config_result = task.run(task=napalm_get, getters=["config"])
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2022-03-18 18:50:36,561 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'backup_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/napalm_backup.py", line 24, in backup_configs
+    config_result = task.run(task=napalm_get, getters=["config"])
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_get (failed)
+
+
+2022-03-18 18:50:36,562 -  nornir.core -     INFO -        run() - Running task 'startup_configs' with args {} on 10 hosts
+2022-03-19 13:42:52,586 -  nornir.core -     INFO -        run() - Running task 'backup_configs' with args {} on 10 hosts
+2022-03-19 13:42:58,857 -  nornir.core -     INFO -        run() - Running task 'startup_configs' with args {} on 10 hosts
+2022-03-19 15:08:16,918 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 10 hosts
+2022-03-19 15:08:16,929 -  nornir.core -     INFO -        run() - Running task 'replace_config' with args {} on 10 hosts
+2022-03-19 15:08:17,014 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: CSR2.j2
+
+2022-03-19 15:08:17,014 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 15:08:24,841 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 539, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: Candidate config could not be applied
+Failed to apply command  network 27.27.27.0 area 0
+Aborting Rollback.
+
+Rollback failed.Reverting back to the original configuration: bootflash:archive-Mar-19-15-08-22.946-17 ...
+
+Total number of passes: 1
+Rollback Done
+
+The original configuration has been successfully restored.
+
+
+2022-03-19 15:08:24,841 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:08:34,359 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 542, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: napalm-ios replace() requires Cisco 'archive' feature to be enabled.
+
+2022-03-19 15:08:34,359 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:08:35,736 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 542, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: napalm-ios replace() requires Cisco 'archive' feature to be enabled.
+
+2022-03-19 15:08:35,737 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:08:36,191 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 539, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: Candidate config could not be applied
+
+  %Failed to backup current config
+
+
+2022-03-19 15:08:36,191 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:08:49,918 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 10 hosts
+2022-03-19 15:08:49,930 -  nornir.core -     INFO -        run() - Running task 'replace_config' with args {} on 10 hosts
+2022-03-19 15:08:50,010 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: CSR2.j2
+
+2022-03-19 15:08:50,011 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 15:08:55,199 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 539, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: Candidate config could not be applied
+Failed to apply command  network 27.27.27.0 area 0
+Aborting Rollback.
+
+Rollback failed.Reverting back to the original configuration: bootflash:archive-Mar-19-15-08-54.011-18 ...
+
+Total number of passes: 1
+Rollback Done
+
+The original configuration has been successfully restored.
+
+
+2022-03-19 15:08:55,199 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:09:03,856 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 542, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: napalm-ios replace() requires Cisco 'archive' feature to be enabled.
+
+2022-03-19 15:09:03,857 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:09:06,421 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 542, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: napalm-ios replace() requires Cisco 'archive' feature to be enabled.
+
+2022-03-19 15:09:06,422 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:09:07,775 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 539, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: Candidate config could not be applied
+
+  %Failed to backup current config
+
+
+2022-03-19 15:09:07,776 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:09:15,204 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 531, in commit_config
+    output = self._commit_handler(cmd)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 470, in wrapper
+    return f(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 487, in _commit_handler
+    output = self.device.send_command_expect(cmd, expect_string=patterns)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1582, in send_command_expect
+    return self.send_command(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 500, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1535, in send_command
+    raise IOError(
+OSError: Search pattern never detected in send_command: (?:[>##]\s*$|.*all username.*confirm)
+
+2022-03-19 15:09:15,204 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:09:15,671 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 531, in commit_config
+    output = self._commit_handler(cmd)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 470, in wrapper
+    return f(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 487, in _commit_handler
+    output = self.device.send_command_expect(cmd, expect_string=patterns)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1582, in send_command_expect
+    return self.send_command(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 500, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1535, in send_command
+    raise IOError(
+OSError: Search pattern never detected in send_command: (?:[>##]\s*$|.*all username.*confirm)
+
+2022-03-19 15:09:15,671 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:09:18,797 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 531, in commit_config
+    output = self._commit_handler(cmd)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 470, in wrapper
+    return f(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 487, in _commit_handler
+    output = self.device.send_command_expect(cmd, expect_string=patterns)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1582, in send_command_expect
+    return self.send_command(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 500, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1535, in send_command
+    raise IOError(
+OSError: Search pattern never detected in send_command: (?:[>##]\s*$|.*all username.*confirm)
+
+2022-03-19 15:09:18,797 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:09:18,884 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 531, in commit_config
+    output = self._commit_handler(cmd)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 470, in wrapper
+    return f(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 487, in _commit_handler
+    output = self.device.send_command_expect(cmd, expect_string=patterns)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1582, in send_command_expect
+    return self.send_command(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 500, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1535, in send_command
+    raise IOError(
+OSError: Search pattern never detected in send_command: (?:[>##]\s*$|.*all username.*confirm)
+
+2022-03-19 15:09:18,884 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:09:19,721 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 531, in commit_config
+    output = self._commit_handler(cmd)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 470, in wrapper
+    return f(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 487, in _commit_handler
+    output = self.device.send_command_expect(cmd, expect_string=patterns)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1582, in send_command_expect
+    return self.send_command(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 500, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1535, in send_command
+    raise IOError(
+OSError: Search pattern never detected in send_command: (?:[>##]\s*$|.*all username.*confirm)
+
+2022-03-19 15:09:19,722 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:12:31,460 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 10 hosts
+2022-03-19 15:12:31,476 -  nornir.core -     INFO -        run() - Running task 'replace_config' with args {} on 10 hosts
+2022-03-19 15:12:31,567 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: CSR2.j2
+
+2022-03-19 15:12:31,568 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 15:12:34,039 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 435, in connect
+    self._auth(
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 764, in _auth
+    raise saved_exception
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 751, in _auth
+    self._transport.auth_password(username, password)
+  File "/usr/lib/python3/dist-packages/paramiko/transport.py", line 1509, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/usr/lib/python3/dist-packages/paramiko/auth_handler.py", line 250, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 972, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.ssh_exception.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 10.10.10.102:22
+
+
+Authentication failed.
+
+2022-03-19 15:12:34,040 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:12:34,236 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 435, in connect
+    self._auth(
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 764, in _auth
+    raise saved_exception
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 751, in _auth
+    self._transport.auth_password(username, password)
+  File "/usr/lib/python3/dist-packages/paramiko/transport.py", line 1509, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/usr/lib/python3/dist-packages/paramiko/auth_handler.py", line 250, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 972, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.ssh_exception.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 10.10.10.103:22
+
+
+Authentication failed.
+
+2022-03-19 15:12:34,236 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:12:34,239 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 435, in connect
+    self._auth(
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 764, in _auth
+    raise saved_exception
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 751, in _auth
+    self._transport.auth_password(username, password)
+  File "/usr/lib/python3/dist-packages/paramiko/transport.py", line 1509, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/usr/lib/python3/dist-packages/paramiko/auth_handler.py", line 250, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 972, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.ssh_exception.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 10.10.10.104:22
+
+
+Authentication failed.
+
+2022-03-19 15:12:34,239 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:12:34,240 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 435, in connect
+    self._auth(
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 764, in _auth
+    raise saved_exception
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 751, in _auth
+    self._transport.auth_password(username, password)
+  File "/usr/lib/python3/dist-packages/paramiko/transport.py", line 1509, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+  File "/usr/lib/python3/dist-packages/paramiko/auth_handler.py", line 250, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 972, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.ssh_exception.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 10.10.10.101:22
+
+
+Authentication failed.
+
+2022-03-19 15:12:34,240 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:12:36,546 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.105:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.105
+
+2022-03-19 15:12:36,546 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:12:36,552 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.106:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.106
+
+2022-03-19 15:12:36,552 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:12:36,559 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.112:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.112
+
+2022-03-19 15:12:36,560 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:12:36,562 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.107:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.107
+
+2022-03-19 15:12:36,562 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 15:12:36,571 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.108:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.108
+
+2022-03-19 15:12:36,572 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:10:11,376 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 10 hosts
+2022-03-19 16:10:11,388 -  nornir.core -     INFO -        run() - Running task 'replace_config' with args {} on 10 hosts
+2022-03-19 16:10:11,566 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: CSR2.j2
+
+2022-03-19 16:10:11,567 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 16:10:16,296 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 539, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: Candidate config could not be applied
+Failed to apply command  network 27.27.27.0 area 0
+Aborting Rollback.
+
+Rollback failed.Reverting back to the original configuration: bootflash:archive-Mar-19-16-10-15.110-21 ...
+
+Total number of passes: 1
+Rollback Done
+
+The original configuration has been successfully restored.
+
+
+2022-03-19 16:10:16,296 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:10:25,177 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 542, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: napalm-ios replace() requires Cisco 'archive' feature to be enabled.
+
+2022-03-19 16:10:25,177 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:10:27,457 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 542, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: napalm-ios replace() requires Cisco 'archive' feature to be enabled.
+
+2022-03-19 16:10:27,458 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:10:27,595 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 542, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: napalm-ios replace() requires Cisco 'archive' feature to be enabled.
+
+2022-03-19 16:10:27,595 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:10:29,347 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 539, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: Candidate config could not be applied
+  %Failed to backup current config
+
+
+2022-03-19 16:10:29,347 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:10:29,751 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 539, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: Candidate config could not be applied
+  %Failed to backup current config
+
+
+2022-03-19 16:10:29,751 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:10:31,357 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 539, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: Candidate config could not be applied
+%Failed to backup current config
+
+
+2022-03-19 16:10:31,357 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:10:38,108 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 531, in commit_config
+    output = self._commit_handler(cmd)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 470, in wrapper
+    return f(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 487, in _commit_handler
+    output = self.device.send_command_expect(cmd, expect_string=patterns)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1582, in send_command_expect
+    return self.send_command(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 500, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1535, in send_command
+    raise IOError(
+OSError: Search pattern never detected in send_command: (?:[>##]\s*$|.*all username.*confirm)
+
+2022-03-19 16:10:38,109 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:10:42,289 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 531, in commit_config
+    output = self._commit_handler(cmd)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 470, in wrapper
+    return f(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 487, in _commit_handler
+    output = self.device.send_command_expect(cmd, expect_string=patterns)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1582, in send_command_expect
+    return self.send_command(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 500, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1535, in send_command
+    raise IOError(
+OSError: Search pattern never detected in send_command: (?:[>##]\s*$|.*all username.*confirm)
+
+2022-03-19 16:10:42,290 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:14:05,729 -  nornir.core -     INFO -        run() - Running task 'arch' with args {} on 10 hosts
+2022-03-19 16:14:45,617 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 10 hosts
+2022-03-19 16:14:45,635 -  nornir.core -     INFO -        run() - Running task 'replace_config' with args {} on 10 hosts
+2022-03-19 16:14:45,727 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: CSR2.j2
+
+2022-03-19 16:14:45,729 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 16:14:50,450 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 539, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: Candidate config could not be applied
+Failed to apply command  network 27.27.27.0 area 0
+Aborting Rollback.
+
+Rollback failed.Reverting back to the original configuration: bootflash:archive-Mar-19-16-14-49.179-23 ...
+
+Total number of passes: 1
+Rollback Done
+
+The original configuration has been successfully restored.
+
+
+2022-03-19 16:14:50,451 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:15:01,734 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 542, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: napalm-ios replace() requires Cisco 'archive' feature to be enabled.
+
+2022-03-19 16:15:01,734 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:15:01,914 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 542, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: napalm-ios replace() requires Cisco 'archive' feature to be enabled.
+
+2022-03-19 16:15:01,915 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:15:02,082 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 542, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: napalm-ios replace() requires Cisco 'archive' feature to be enabled.
+
+2022-03-19 16:15:02,082 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:15:03,959 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 539, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: Candidate config could not be applied
+  %Failed to backup current config
+
+
+2022-03-19 16:15:03,960 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:15:04,607 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 539, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: Candidate config could not be applied
+%Failed to backup current config
+
+
+2022-03-19 16:15:04,608 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:15:04,815 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 539, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: Candidate config could not be applied
+  %Failed to backup current config
+
+
+2022-03-19 16:15:04,815 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:15:12,456 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 531, in commit_config
+    output = self._commit_handler(cmd)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 470, in wrapper
+    return f(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 487, in _commit_handler
+    output = self.device.send_command_expect(cmd, expect_string=patterns)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1582, in send_command_expect
+    return self.send_command(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 500, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1535, in send_command
+    raise IOError(
+OSError: Search pattern never detected in send_command: (?:[>##]\s*$|.*all username.*confirm)
+
+2022-03-19 16:15:12,456 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:15:17,411 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 531, in commit_config
+    output = self._commit_handler(cmd)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 470, in wrapper
+    return f(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 487, in _commit_handler
+    output = self.device.send_command_expect(cmd, expect_string=patterns)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1582, in send_command_expect
+    return self.send_command(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 500, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1535, in send_command
+    raise IOError(
+OSError: Search pattern never detected in send_command: (?:[>##]\s*$|.*all username.*confirm)
+
+2022-03-19 16:15:17,412 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:26:11,197 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 10 hosts
+2022-03-19 16:26:11,209 -  nornir.core -     INFO -        run() - Running task 'replace_config' with args {} on 10 hosts
+2022-03-19 16:26:11,280 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: CSR2.j2
+
+2022-03-19 16:26:11,280 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 16:26:16,228 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.102:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.102
+
+2022-03-19 16:26:16,228 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:26:16,240 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.103:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.103
+
+2022-03-19 16:26:16,241 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:26:16,252 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.101:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.101
+
+2022-03-19 16:26:16,252 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:26:16,256 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.105:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.105
+
+2022-03-19 16:26:16,256 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.104:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.104
+
+2022-03-19 16:26:16,257 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:26:16,257 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:26:16,263 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.106:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.106
+
+2022-03-19 16:26:16,264 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:26:16,276 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.108:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.108
+
+2022-03-19 16:26:16,276 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:26:16,285 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.107:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.107
+
+2022-03-19 16:26:16,285 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:26:16,286 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 935, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/usr/lib/python3/dist-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/usr/lib/python3/dist-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 86, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/ssh_dispatcher.py", line 326, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 350, in __init__
+    self._open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 355, in _open
+    self.establish_connection()
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 957, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 10.10.10.112:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 29, in napalm_configure
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/inventory.py", line 546, in open_connection
+    conn_obj.open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 169, in open
+    self.device = self._netmiko_open(
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/base/base.py", line 95, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 10.10.10.112
+
+2022-03-19 16:26:16,286 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:27:22,470 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 10 hosts
+2022-03-19 16:27:22,484 -  nornir.core -     INFO -        run() - Running task 'replace_config' with args {} on 10 hosts
+2022-03-19 16:27:22,634 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: CSR2.j2
+
+2022-03-19 16:27:22,634 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 16:27:28,271 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 539, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: Candidate config could not be applied
+Failed to apply command  redistribute redistribute connected subnets
+Aborting Rollback.
+
+Rollback failed.Reverting back to the original configuration: bootflash:archive-Mar-19-16-27-26.792-24 ...
+
+Total number of passes: 1
+Rollback Done
+
+The original configuration has been successfully restored.
+
+
+2022-03-19 16:27:28,271 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:27:39,963 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 542, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: napalm-ios replace() requires Cisco 'archive' feature to be enabled.
+
+2022-03-19 16:27:39,963 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:27:40,072 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 542, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: napalm-ios replace() requires Cisco 'archive' feature to be enabled.
+
+2022-03-19 16:27:40,072 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:27:40,497 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 542, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: napalm-ios replace() requires Cisco 'archive' feature to be enabled.
+
+2022-03-19 16:27:40,498 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:27:41,655 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 539, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: Candidate config could not be applied
+  %Failed to backup current config
+
+
+2022-03-19 16:27:41,655 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:27:42,511 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 539, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: Candidate config could not be applied
+%Failed to backup current config
+
+
+2022-03-19 16:27:42,511 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:27:43,017 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 539, in commit_config
+    raise ReplaceConfigException(msg)
+napalm.base.exceptions.ReplaceConfigException: Candidate config could not be applied
+  %Failed to backup current config
+
+
+2022-03-19 16:27:43,017 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:27:50,136 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 531, in commit_config
+    output = self._commit_handler(cmd)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 470, in wrapper
+    return f(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 487, in _commit_handler
+    output = self.device.send_command_expect(cmd, expect_string=patterns)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1582, in send_command_expect
+    return self.send_command(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 500, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1535, in send_command
+    raise IOError(
+OSError: Search pattern never detected in send_command: (?:[>##]\s*$|.*all username.*confirm)
+
+2022-03-19 16:27:50,136 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+
+2022-03-19 16:27:55,203 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'napalm_configure' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_napalm/plugins/tasks/napalm_configure.py", line 39, in napalm_configure
+    device.commit_config()
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 531, in commit_config
+    output = self._commit_handler(cmd)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 470, in wrapper
+    return f(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/napalm/ios/ios.py", line 487, in _commit_handler
+    output = self.device.send_command_expect(cmd, expect_string=patterns)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1582, in send_command_expect
+    return self.send_command(*args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/utilities.py", line 500, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/geordie/.local/lib/python3.10/site-packages/netmiko/base_connection.py", line 1535, in send_command
+    raise IOError(
+OSError: Search pattern never detected in send_command: (?:[>##]\s*$|.*all username.*confirm)
+
+2022-03-19 16:27:55,203 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/replacer.py", line 24, in replace_config
+    task.run(task=napalm_configure, configuration=configuration, replace=True)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_configure (failed)
+
+

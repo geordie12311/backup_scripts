@@ -1,0 +1,1446 @@
+2022-03-19 14:29:14,411 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 10 hosts
+2022-03-19 14:29:14,413 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/R1.yaml'
+
+2022-03-19 14:29:14,413 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:29:14,413 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/R2.yaml'
+
+2022-03-19 14:29:14,414 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:29:14,414 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/R5.yaml'
+
+2022-03-19 14:29:14,415 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:29:14,415 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/R3.yaml'
+
+2022-03-19 14:29:14,415 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/R6.yaml'
+
+2022-03-19 14:29:14,416 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:29:14,416 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/R7.yaml'
+
+2022-03-19 14:29:14,416 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:29:14,416 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:29:14,416 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/R4.yaml'
+
+2022-03-19 14:29:14,416 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:29:14,417 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/R8.yaml'
+
+2022-03-19 14:29:14,417 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:29:14,417 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/CSR1.yaml'
+
+2022-03-19 14:29:14,417 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:29:14,418 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/CSR2.yaml'
+
+2022-03-19 14:29:14,418 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:29:14,418 -  nornir.core -     INFO -        run() - Running task 'replace_config' with args {} on 10 hosts
+2022-03-19 14:30:38,740 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 10 hosts
+2022-03-19 14:30:38,741 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/R1.yaml'
+
+2022-03-19 14:30:38,741 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/R2.yaml'
+
+2022-03-19 14:30:38,743 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:30:38,743 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/R4.yaml'
+
+2022-03-19 14:30:38,744 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:30:38,744 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/R3.yaml'
+
+2022-03-19 14:30:38,744 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:30:38,744 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:30:38,747 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/R5.yaml'
+
+2022-03-19 14:30:38,748 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:30:38,748 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/R6.yaml'
+
+2022-03-19 14:30:38,748 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:30:38,749 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/R8.yaml'
+
+2022-03-19 14:30:38,749 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/CSR2.yaml'
+
+2022-03-19 14:30:38,750 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:30:38,750 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:30:38,750 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/CSR1.yaml'
+
+2022-03-19 14:30:38,750 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:30:38,749 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'load_yaml' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir_utils/plugins/tasks/data/load_yaml.py", line 24, in load_yaml
+    with open(file, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: ' ./host_vars/R7.yaml'
+
+2022-03-19 14:30:38,751 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 12, in load_vars
+    data = task.run(task=load_yaml, file=f" ./host_vars/{task.host}.yaml")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: load_yaml (failed)
+
+
+2022-03-19 14:30:38,751 -  nornir.core -     INFO -        run() - Running task 'replace_config' with args {} on 10 hosts
+2022-03-19 14:31:58,395 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 10 hosts
+2022-03-19 14:31:58,408 -  nornir.core -     INFO -        run() - Running task 'replace_config' with args {} on 10 hosts
+2022-03-19 14:31:58,409 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:31:58,415 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:31:58,415 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:31:58,416 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:31:58,416 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:31:58,417 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:31:58,417 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:31:58,418 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:31:58,417 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:31:58,417 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:44:04,704 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 10 hosts
+2022-03-19 14:44:04,713 -  nornir.core -     INFO -        run() - Running task 'replace_config' with args {} on 10 hosts
+2022-03-19 14:44:04,714 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:44:04,715 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:44:04,715 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:44:04,715 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:44:04,715 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:44:04,716 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:44:04,716 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:44:04,716 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:44:04,716 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:44:04,718 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:46:56,472 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 10 hosts
+2022-03-19 14:46:56,481 -  nornir.core -     INFO -        run() - Running task 'replace_config' with args {} on 10 hosts
+2022-03-19 14:46:56,482 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:46:56,482 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:46:56,482 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:46:56,482 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:46:56,483 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:46:56,483 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:46:56,483 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:46:56,484 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:46:56,484 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:46:56,486 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 16, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path ="./templates")
+NameError: name 'template_file' is not defined
+
+2022-03-19 14:51:34,769 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 10 hosts
+2022-03-19 14:51:34,783 -  nornir.core -     INFO -        run() - Running task 'replace_config' with args {} on 10 hosts
+2022-03-19 14:51:34,801 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R5.j2
+
+2022-03-19 14:51:34,801 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:51:34,801 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R6.j2
+
+2022-03-19 14:51:34,801 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:51:34,802 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R4.j2
+
+2022-03-19 14:51:34,802 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:51:34,802 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R8.j2
+
+2022-03-19 14:51:34,802 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:51:34,803 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: CSR1.j2
+
+2022-03-19 14:51:34,803 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:51:34,803 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: CSR2.j2
+
+2022-03-19 14:51:34,804 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R2.j2
+
+2022-03-19 14:51:34,804 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:51:34,805 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R1.j2
+
+2022-03-19 14:51:34,806 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:51:34,806 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:51:34,806 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R7.j2
+
+2022-03-19 14:51:34,806 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R3.j2
+
+2022-03-19 14:51:34,807 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:51:34,807 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:57:59,515 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 10 hosts
+2022-03-19 14:57:59,523 -  nornir.core -     INFO -        run() - Running task 'replace_config' with args {} on 10 hosts
+2022-03-19 14:57:59,524 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R1.j2
+
+2022-03-19 14:57:59,525 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:57:59,525 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R2.j2
+
+2022-03-19 14:57:59,525 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:57:59,526 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R3.j2
+
+2022-03-19 14:57:59,526 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:57:59,526 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R4.j2
+
+2022-03-19 14:57:59,526 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:57:59,528 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R5.j2
+
+2022-03-19 14:57:59,529 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:57:59,529 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R6.j2
+
+2022-03-19 14:57:59,529 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:57:59,529 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R7.j2
+
+2022-03-19 14:57:59,530 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:57:59,530 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R8.j2
+
+2022-03-19 14:57:59,530 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:57:59,531 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: CSR1.j2
+
+2022-03-19 14:57:59,531 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 14:57:59,531 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: CSR2.j2
+
+2022-03-19 14:57:59,532 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 17, in replace_config
+    template_results = task.run(task=template_file, template=f"{task.host}.j2", path="./templates")
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 15:03:48,086 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 10 hosts
+2022-03-19 15:03:48,102 -  nornir.core -     INFO -        run() - Running task 'replace_config' with args {} on 10 hosts
+2022-03-19 15:03:48,104 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R1.j2
+
+2022-03-19 15:03:48,105 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 15:03:48,105 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R2.j2
+
+2022-03-19 15:03:48,105 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 15:03:48,106 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R3.j2
+
+2022-03-19 15:03:48,106 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 15:03:48,107 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R4.j2
+
+2022-03-19 15:03:48,107 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R5.j2
+
+2022-03-19 15:03:48,112 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 15:03:48,112 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R6.j2
+
+2022-03-19 15:03:48,112 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 15:03:48,112 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R7.j2
+
+2022-03-19 15:03:48,111 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 15:03:48,113 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 15:03:48,120 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: CSR1.j2
+
+2022-03-19 15:03:48,120 - nornir.core.task -    ERROR -      start() - Host 'CSR1': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 15:03:48,121 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: CSR2.j2
+
+2022-03-19 15:03:48,121 - nornir.core.task -    ERROR -      start() - Host 'CSR2': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2022-03-19 15:03:48,120 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/usr/lib/python3.10/dist-packages/nornir_jinja2/plugins/tasks/template_file.py", line 42, in template_file
+    t = env.get_template(template)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 115, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/geordie/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 197, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: R8.j2
+
+2022-03-19 15:03:48,121 - nornir.core.task -    ERROR -      start() - Host 'R8': task 'replace_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/home/geordie/Nornir-automation/backup_scripts/templates/replacer.py", line 19, in replace_config
+    template_results = task.run(
+  File "/home/geordie/.local/lib/python3.10/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
